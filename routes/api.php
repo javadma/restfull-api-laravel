@@ -19,4 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/polls', 'PollController@index');
 Route::get('/polls/poll/{id}', 'PollController@show');
 Route::post('/polls/store','PollController@store');
+Route::put('/polls/update/{poll}','PollController@update');
+Route::delete('/polls/delete/{poll}','PollController@delete');
 
