@@ -9,12 +9,13 @@ class PollController extends Controller
 {
     public function index()
     {
-        return response()->json(Poll::all(), 200);
+        return response()->json(Poll::paginate(1), 200);
     }
 
     public function show($id)
     {
-        $poll = Poll::find($id);
+//        $poll = Poll::find($id);
+        $poll = Poll::with('questions')->findOrFail($id);
         return response()->json($poll, 200);
     }
 
@@ -39,5 +40,11 @@ class PollController extends Controller
     public function errors()
     {
         return response()->json(['msg' => 'Payment is required.'], 501);
+    }
+
+    public function questions(Request $request, Poll $poll)
+    {
+        $questions = $poll->questions;
+        return response()->json($questions, 200);
     }
 }

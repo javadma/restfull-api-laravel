@@ -18,7 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('/polls', 'PollController@index');
 Route::get('/polls/poll/{id}', 'PollController@show');
-Route::post('/polls/store','PollController@store');
-Route::put('/polls/update/{poll}','PollController@update');
-Route::delete('/polls/delete/{poll}','PollController@delete');
-Route::any('polls/errors','PollController@errors');
+Route::post('/polls/store', 'PollController@store');
+Route::put('/polls/update/{poll}', 'PollController@update');
+Route::delete('/polls/delete/{poll}', 'PollController@delete');
+Route::any('polls/errors', 'PollController@errors');
+Route::apiResource('questions', 'QuestionController');
+Route::get('/polls/{poll}/questions', 'PollController@questions');
+Route::get('/files/get','FilesController@show');
