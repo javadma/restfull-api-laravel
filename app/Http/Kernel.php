@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\HttpHeaders;
+use App\Http\Middleware\Logging;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -40,7 +42,8 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
             'bindings',
-            \App\Http\Middleware\Logging::class
+            Logging::class,
+            HttpHeaders::class,
         ],
     ];
 
