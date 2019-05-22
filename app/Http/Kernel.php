@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\HttpHeaders;
 use App\Http\Middleware\Logging;
+use App\Http\Middleware\TokenAuth;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -44,6 +45,7 @@ class Kernel extends HttpKernel
             'bindings',
             Logging::class,
             HttpHeaders::class,
+            TokenAuth::class
         ],
     ];
 
