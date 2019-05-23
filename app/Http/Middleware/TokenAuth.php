@@ -16,9 +16,9 @@ class TokenAuth
     public function handle($request, Closure $next)
     {
         $token = $request->header('X-API-TOKEN');
-        if ('test-value' != $token){
-            abort(401,'Auth Token not Found');
-        }
+//        if ('test-value' != $token){
+//            abort(401,'Auth Token not Found');
+//        }
         return $next($request);
     }
 }

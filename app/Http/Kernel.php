@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\BasicAuth;
 use App\Http\Middleware\HttpHeaders;
 use App\Http\Middleware\Logging;
 use App\Http\Middleware\TokenAuth;
@@ -45,7 +46,8 @@ class Kernel extends HttpKernel
             'bindings',
             Logging::class,
             HttpHeaders::class,
-            TokenAuth::class
+            TokenAuth::class,
+            BasicAuth::class,
         ],
     ];
 
